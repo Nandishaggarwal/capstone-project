@@ -21,9 +21,8 @@ pipeline {
         }
         stage('Deploy our image') { 
             steps { 
-                sh "docker-compose up -d"
+                sh "docker-compose up"
                 echo "Image Deployed"
-                } 
             }
         } 
         
