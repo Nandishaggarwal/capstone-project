@@ -21,14 +21,14 @@ pipeline {
         }
         stage('Deploy our image') { 
             steps { 
-                sh "docker-compose up"
+                sh "docker-compose up -d"
                 echo "Image Deployed"
             }
         } 
         
         stage('Cleaning up') { 
             steps { 
-                sh "docker rmi $registry:$BUILD_NUMBER" 
+                sh "docker-compose down --rmi all" 
                 echo "Cleanup complete"
             }
         } 
